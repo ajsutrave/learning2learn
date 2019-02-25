@@ -22,65 +22,43 @@ chrome.storage.sync.get('userid', function(items) {
 
 var run_button_found = false;
 document.addEventListener("DOMNodeInserted", function(e) {
-    // TODO use the span element to find the run button
-    var run_button = $('.ws-header-cta').get(0);
-
-    if((run_button != null) && !run_button_found) {
-	if (run_button.innerHTML.indexOf('run') == -1) {
-	    // Wait for the run button to fully initialize
-	    run_button_found = false;
-	    return;
-	}
+    var run_button = $("span:contains('run')").parent().get(0);
+    if(run_button != null && !run_button_found) {
 	run_button_found = true;
-	run_button.addEventListener("click", function(e) {
-	    // The run button has been clicked
 
+    	run_button.addEventListener("click", function(e) {
+    	    // The run button has been clicked
 
-	    // The button seems to be removed from the page with each
-	    // click, so must be refound after each run
-	    run_button_found = false;
+    	    // The button seems to be removed from the page with each
+    	    // click, so must be refound after each run
+    	    run_button_found = false;
 
-	    // First, check if the button click should result in
-	    // running code in the IDE area (checking inner html of
-	    // the button to see if it's currently displaying the word
-	    // 'run')
-	    var clickedElement = e.target || e.srcElement;
-	    if (clickedElement.innerHTML.indexOf('run') == -1) {
-		// The button isn't displaying run, so block this function from fully executing
-		console.log('exiting early');
-		return;
-	    }
-	    else {
-		console.log('executing fully');
-	    }
-
-	    // Checking to see if we have the right code editor here
-	    // in the page (error was being thrown while testing on a
-	    // different repl.it page)
-	    var code;
-	    for (const codeClassName of ["ace_text-layer", "view-lines"]) {
-		code = document.getElementsByClassName(codeClassName)[0]
-		if (code != undefined) {
-		    var date = new Date();
-  		    var url = "https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
-  		    $.ajax({
-  			url: url,
-  			method: "GET",
-  			dataType: "json",
-  			data: {
-  			    "code": code.innerText,
-  			    "timestamp": date,
-  			    "userid": userid,
-  			    "name": "TEST_AJ"
-  			}
-  		    });
-		    break;
-		}
-	    }
-	    if (code == undefined) {
-		console.error("could not find student's code on page");
-	    }
-
-	}, false);
+    	    // Checking to see if we have the right code editor here
+    	    // in the page (error was being thrown while testing on a
+    	    // different repl.it page)
+    	    var code;
+    	    for (const codeClassName of ["ace_text-layer", "view-lines"]) {
+    		code = document.getElementsByClassName(codeClassName)[0]
+    		if (code != undefined) {
+    		    var date = new Date();
+    		    var url = "https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
+    		    $.ajax({
+    			url: url,
+    			method: "GET",
+    			dataType: "json",
+    			data: {
+    			    "code": code.innerText,
+    			    "timestamp": date,
+    			    "userid": userid,
+    			    "name": "TEST_AJ"
+    			}
+    		    });
+    		    break;
+    		}
+    	    }
+    	    if (code == undefined) {
+    		console.error("could not find student's code on page");
+    	    }
+    	}, false);
     }
 }, false);
