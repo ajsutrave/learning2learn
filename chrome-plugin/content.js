@@ -32,11 +32,18 @@ document.addEventListener("DOMNodeInserted", function(e) {
 	    return;
 	}
 	run_button_found = true;
-	run_button.addEventListener("click", function(e) { // The run button has been clicked
-	    run_button_found = false; // The button seems to be removed from the page with each click, so must be refound after each run
+	run_button.addEventListener("click", function(e) {
+	    // The run button has been clicked
 
-	    // First, check if the button click should result in running code in the IDE area
-	    // (checking inner html of the button to see if it's currently displaying the word 'run')
+
+	    // The button seems to be removed from the page with each
+	    // click, so must be refound after each run
+	    run_button_found = false;
+
+	    // First, check if the button click should result in
+	    // running code in the IDE area (checking inner html of
+	    // the button to see if it's currently displaying the word
+	    // 'run')
 	    var clickedElement = e.target || e.srcElement;
 	    if (clickedElement.innerHTML.indexOf('run') == -1) {
 		// The button isn't displaying run, so block this function from fully executing
@@ -47,6 +54,9 @@ document.addEventListener("DOMNodeInserted", function(e) {
 		console.log('executing fully');
 	    }
 
+	    // Checking to see if we have the right code editor here
+	    // in the page (error was being thrown while testing on a
+	    // different repl.it page)
 	    var code;
 	    if (document.getElementsByClassName("ace_text-layer")[0] != undefined) {
 		code = document.getElementsByClassName("ace_text-layer")[0]
@@ -58,10 +68,9 @@ document.addEventListener("DOMNodeInserted", function(e) {
 	    if (code != undefined) {
 		var date = new Date();
   		var url = "https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
-		// TODO_datastore: var url = 'https://datastore.googleapis.com/v1/projects/my-project-1533510475410:beginTransaction'
   		$.ajax({
   		    url: url,
-  		    method: "GET", // TODO_datastore: method: "POST",
+  		    method: "GET",
   		    dataType: "json",
   		    data: {
   			"code": code.innerText,
