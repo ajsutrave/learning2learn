@@ -23,11 +23,12 @@ chrome.storage.sync.get('userid', function(items) {
 var run_button_found = false;
 document.addEventListener("DOMNodeInserted", function(e) {
     // TODO use the span element to find the run button
-    run_button = $('.ws-header-cta').get(0);
+    var run_button = $('.ws-header-cta').get(0);
 
     if((run_button != null) && !run_button_found) {
 	if (run_button.innerHTML.indexOf('run') == -1) {
 	    // Wait for the run button to fully initialize
+	    run_button_found = false;
 	    return;
 	}
 	run_button_found = true;
@@ -46,9 +47,15 @@ document.addEventListener("DOMNodeInserted", function(e) {
 		console.log('executing fully');
 	    }
 
+	    var code;
 	    if (document.getElementsByClassName("ace_text-layer")[0] != undefined) {
-		// Checking to see if we have the right code editor here in the page (error was being thrown while testing on a different repl.it page)
+		code = document.getElementsByClassName("ace_text-layer")[0]
+	    } else if (document.getElementsByClassName("view-lines")[0] != undefined) {
+		code = document.getElementsByClassName("view-lines")[0]
+	    }
+	    // Checking to see if we have the right code editor here in the page (error was being thrown while testing on a different repl.it page)
 
+	    if (code != undefined) {
 		var date = new Date();
   		var url = "https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
 		// TODO_datastore: var url = 'https://datastore.googleapis.com/v1/projects/my-project-1533510475410:beginTransaction'
@@ -57,12 +64,14 @@ document.addEventListener("DOMNodeInserted", function(e) {
   		    method: "GET", // TODO_datastore: method: "POST",
   		    dataType: "json",
   		    data: {
-  			"code": document.getElementsByClassName("ace_text-layer")[0].innerText,
+  			"code": code.innerText,
   			"timestamp": date,
   			"userid": userid,
-  			"name": "Anonymous"
+  			"name": "TEST_AJ"
   		    }
   		});
+	    } else {
+		console.error("could not find student's code");
 	    }
 
 	}, false);
