@@ -58,29 +58,27 @@ document.addEventListener("DOMNodeInserted", function(e) {
 	    // in the page (error was being thrown while testing on a
 	    // different repl.it page)
 	    var code;
-	    if (document.getElementsByClassName("ace_text-layer")[0] != undefined) {
-		code = document.getElementsByClassName("ace_text-layer")[0]
-	    } else if (document.getElementsByClassName("view-lines")[0] != undefined) {
-		code = document.getElementsByClassName("view-lines")[0]
+	    for (const codeClassName of ["ace_text-layer", "view-lines"]) {
+		code = document.getElementsByClassName(codeClassName)[0]
+		if (code != undefined) {
+		    var date = new Date();
+  		    var url = "https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
+  		    $.ajax({
+  			url: url,
+  			method: "GET",
+  			dataType: "json",
+  			data: {
+  			    "code": code.innerText,
+  			    "timestamp": date,
+  			    "userid": userid,
+  			    "name": "TEST_AJ"
+  			}
+  		    });
+		    break;
+		}
 	    }
-	    // Checking to see if we have the right code editor here in the page (error was being thrown while testing on a different repl.it page)
-
-	    if (code != undefined) {
-		var date = new Date();
-  		var url = "https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
-  		$.ajax({
-  		    url: url,
-  		    method: "GET",
-  		    dataType: "json",
-  		    data: {
-  			"code": code.innerText,
-  			"timestamp": date,
-  			"userid": userid,
-  			"name": "TEST_AJ"
-  		    }
-  		});
-	    } else {
-		console.error("could not find student's code");
+	    if (code == undefined) {
+		console.error("could not find student's code on page");
 	    }
 
 	}, false);
