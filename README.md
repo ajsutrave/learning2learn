@@ -1,7 +1,6 @@
 
-Learning2Learn: An Intelligent Tutoring System
-
-----------------
+# Learning2Learn: An Intelligent Tutoring System
+-------------------------------------------------
 
 This concept is known in academic literature as an intelligent tutoring system, or ITS. Here we limit our scope to only an ITS system with a focus on programming. One of the first attempts was LISPITS developed in 1989, a program that successfully aided students in learning LISP. A few other approaches were tried at this time but none seem to have gained widespread adoption.
 Since then, there have been many different iterations of this same idea: AutoTutor from the University of Memphis and ESC101-ITS from IIT Kanpur as well as generalized frameworks for ITS such as the Army Research Lab’s open source GIFT.

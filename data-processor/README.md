@@ -1,6 +1,6 @@
 
-Learning2Learn -  Data Processor
---------------------------------
+# Learning2Learn -  Data Processor
+----------------------------------
 
 This project handles the data processing/machine
 learning system, which independently analyzes collected information and
