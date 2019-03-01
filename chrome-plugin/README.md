@@ -17,4 +17,4 @@ function uuid()
 **Returns**
 `{Boolean}` whether or not something happened
 
-   ---
+---

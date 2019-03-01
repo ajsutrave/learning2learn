@@ -1,4 +1,29 @@
-function uuid() {
+
+
+/*
+ Testing some stuff here
+ */
+ 'use strict';
+
+ const script = document.createElement('script');
+ script.onload = function() {
+   console.log('loaded');
+   alert('load');
+ }
+ script.setAttribute("type", "text/javascript");
+ script.setAttribute("src", chrome.extension.getURL('L2L.js'));
+console.log(script);
+ const head = document.head || document.getElementsByTagName("head")[0] || document.documentElement;
+console.log('HEAD: '+head)
+ head.insertBefore(script, head.lastChild);
+
+console.log('~~~');
+//console.log(L2L);
+console.log('~~~');
+
+
+
+function uuid(x) {
     var uuid = "", i, random;
     for (i = 0; i < 32; i++) {
 	random = Math.random() * 16 | 0;
