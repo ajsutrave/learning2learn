@@ -59,6 +59,16 @@ ____________________________________________________________________
 	* [?] Host small lessons integrated with Learning2Learn and release them to select online communities
 	* [?] ...
 * Collect lots of data, and then some!
+	* Potential data types to collect:
+		* user/session identifier
+		* submitted code block
+		* lesson/problem identifiers
+		* previous lesson/problem identifiers (referer)
+		* ip/geo
+		* time
+		* typing speed
+		* average time between inputs
+		* ...
 * More Brand Strategy and Organizational Planning.
 	* Find marketing/messaging for different target audiences
 	* ...
