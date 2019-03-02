@@ -41,7 +41,9 @@ document.addEventListener("DOMNodeInserted", function(e) {
     			code = document.getElementsByClassName(codeClassName)[0]
     			if (code != undefined) {
     				var date = new Date();
-    				var url = "https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
+    				var url =
+						"https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
+						// "http://127.0.0.1:5000/"; for local testing
     				$.ajax({
     					url: url,
     					method: "GET",
