@@ -8,18 +8,18 @@
     "permissions": [ "storage" ],
 
     "content_scripts": [{
-	"matches": [
-	    "http://repl.it/*",
-	    "https://repl.it/*",
-		"http://127.0.0.1:5000/*"
-	],
+    	"matches": [
+    	  "http://repl.it/*",
+    	  "https://repl.it/*",
+    		"http://127.0.0.1:5000/*"
+    	],
 
-	"js": [
-	    "jquery-3.3.1.min.js",
-  	    "notify.js",
-	    "content.js"
-	],
-	"run_at": "document_end"
+    	"js": [
+    	    "jquery-3.3.1.min.js",
+      	    "notify.js",
+    	    "content.js"
+    	],
+    	"run_at": "document_end"
     }],
 
     "browser_action": {
