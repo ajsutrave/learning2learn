@@ -26,12 +26,12 @@ console.log('~~~');
 function uuid(x) {
     var uuid = "", i, random;
     for (i = 0; i < 32; i++) {
-	random = Math.random() * 16 | 0;
+		random = Math.random() * 16 | 0;
 
-	if (i == 8 || i == 12 || i == 16 || i == 20) {
-	    uuid += "-"
-	}
-	uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
+		if (i == 8 || i == 12 || i == 16 || i == 20) {
+			uuid += "-"
+		}
+		uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
     }
     return uuid;
 }
@@ -49,7 +49,7 @@ var run_button_found = false;
 document.addEventListener("DOMNodeInserted", function(e) {
     var run_button = $("span:contains('run')").parent().get(0);
     if(run_button != null && !run_button_found) {
-	run_button_found = true;
+		run_button_found = true;
 
     	run_button.addEventListener("click", function(e) {
     	    // The run button has been clicked
@@ -63,26 +63,28 @@ document.addEventListener("DOMNodeInserted", function(e) {
     	    // different repl.it page)
     	    var code;
     	    for (const codeClassName of ["ace_text-layer", "view-lines"]) {
-    		code = document.getElementsByClassName(codeClassName)[0]
-    		if (code != undefined) {
-    		    var date = new Date();
-    		    var url = "https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
-    		    $.ajax({
-    			url: url,
-    			method: "GET",
-    			dataType: "json",
-    			data: {
-    			    "code": code.innerText,
-    			    "timestamp": date,
-    			    "userid": userid,
-    			    "name": "TEST_AJ"
+    			code = document.getElementsByClassName(codeClassName)[0]
+    			if (code != undefined) {
+    				var date = new Date();
+    				var url =
+						"https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
+						// "http://127.0.0.1:5000/api";
+    				$.ajax({
+    					url: url,
+    					method: "POST",
+    					dataType: "json",
+    					data: {
+    						"code": code.innerText,
+    						"timestamp": date,
+    						"userid": userid,
+    						"name": "TEST_AJ"
+    					}
+    				});
+    				break;
     			}
-    		    });
-    		    break;
-    		}
     	    }
     	    if (code == undefined) {
-    		console.error("could not find student's code on page");
+    			console.error("could not find student's code on page");
     	    }
     	}, false);
     }
