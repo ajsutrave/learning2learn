@@ -1,6 +1,6 @@
 {
     "name": "Learning2Learn - Replit data logger",
-    "version": "0.3",
+    "version": "0.0.4",
     "manifest_version": 2,
 
     "description": "Logs data from repl.it for the learning2learn grant",
@@ -10,7 +10,8 @@
     "content_scripts": [{
 	"matches": [
 	    "http://repl.it/*",
-	    "https://repl.it/*"
+	    "https://repl.it/*",
+		"http://127.0.0.1:5000/*"
 	],
 
 	"js": [
