@@ -12,6 +12,8 @@
 # below:
 .git
 .gitignore
+data
+.gcp-backend-venv
 
 # Python pycache:
 __pycache__/

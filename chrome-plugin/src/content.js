@@ -41,9 +41,7 @@ document.addEventListener("DOMNodeInserted", function(e) {
     			code = document.getElementsByClassName(codeClassName)[0]
     			if (code != undefined) {
     				var date = new Date();
-    				var url =
-						"https://script.google.com/macros/s/AKfycbzt7vR7Ks0HoGlZ5bKFP8A-oTwA1gPpTi2EdhpqDkiY1sEDoiJ8/exec"
-						// "http://127.0.0.1:5000/api";
+    				var url = "http://127.0.0.1:8080/api";
     				$.ajax({
     					url: url,
     					method: "POST",
