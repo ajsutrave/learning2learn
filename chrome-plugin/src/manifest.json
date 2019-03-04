@@ -1,6 +1,6 @@
 {
     "name": "Learning2Learn - Replit data logger",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "manifest_version": 2,
 
     "description": "Logs data from repl.it for the learning2learn grant",
@@ -9,9 +9,12 @@
 
     "content_scripts": [{
     	"matches": [
-    	  "http://repl.it/*",
-    	  "https://repl.it/*",
-    		"http://127.0.0.1:5000/*"
+    		"http://repl.it/*",
+    		"https://repl.it/*",
+    		"http://127.0.0.1:8080/*",
+    		"https://127.0.0.1:8080/*",
+			"https://learning2learn-gcp-backend.appspot.com:8080/*",
+			"http://learning2learn-gcp-backend.appspot.com:8080/*"
     	],
 
     	"js": [

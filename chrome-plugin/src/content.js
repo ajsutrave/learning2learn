@@ -41,16 +41,16 @@ document.addEventListener("DOMNodeInserted", function(e) {
     			code = document.getElementsByClassName(codeClassName)[0]
     			if (code != undefined) {
     				var date = new Date();
-    				var url = "http://127.0.0.1:8080/api";
     				$.ajax({
-    					url: url,
+    					// url: "http://127.0.0.1:8080/api",
+    					url: "https://learning2learn-gcp-backend.appspot.com:8080/api",
     					method: "POST",
     					dataType: "json",
     					data: {
     						"code": code.innerText,
     						"timestamp": date,
     						"userid": userid,
-    						"name": "TEST_AJ"
+							"name": "Test",
     					}
     				});
     				break;
