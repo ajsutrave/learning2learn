@@ -21,44 +21,47 @@ chrome.storage.sync.get('userid', function(items) {
 });
 
 var run_button_found = false;
+var run_button;
+function handleRunButtonClick(e) {
+	if (this.textContent == "run") {
+		// Checking to see if we have the right code editor here
+		// in the page (error was being thrown while testing on a
+		// different repl.it page)
+		var code;
+		for (const codeClassName of ["ace_text-layer", "view-lines"]) {
+    		code = document.getElementsByClassName(codeClassName)[0]
+    		if (code != undefined) {
+    			var date = new Date();
+    			$.ajax({
+    				url: "http://127.0.0.1:8080/api",
+    				// url: "https://learning2learn-gcp-backend.appspot.com:8080/api",
+    				method: "POST",
+    				dataType: "json",
+    				data: {
+    					"code": code.innerText,
+    					"timestamp": date,
+    					"userid": userid,
+						"name": "Test",
+    				}
+    			});
+    			break;
+    		}
+		}
+		if (code == undefined) {
+    		console.error("could not find student's code on page");
+		}
+
+		// The button seems to be removed from the page with each
+		// click, so must be refound after each run
+		run_button_found = false;
+		removeEventListener("click", handleRunButtonClick, false);
+	}
+}
+
 document.addEventListener("DOMNodeInserted", function(e) {
-    var run_button = $("span:contains('run')").parent().get(0);
+    run_button = $("span:contains('run')").parent().get(0);
     if(run_button != null && !run_button_found) {
 		run_button_found = true;
-
-    	run_button.addEventListener("click", function(e) {
-    	    // The run button has been clicked
-
-    	    // The button seems to be removed from the page with each
-    	    // click, so must be refound after each run
-    	    run_button_found = false;
-
-    	    // Checking to see if we have the right code editor here
-    	    // in the page (error was being thrown while testing on a
-    	    // different repl.it page)
-    	    var code;
-    	    for (const codeClassName of ["ace_text-layer", "view-lines"]) {
-    			code = document.getElementsByClassName(codeClassName)[0]
-    			if (code != undefined) {
-    				var date = new Date();
-    				$.ajax({
-    					// url: "http://127.0.0.1:8080/api",
-    					url: "https://learning2learn-gcp-backend.appspot.com:8080/api",
-    					method: "POST",
-    					dataType: "json",
-    					data: {
-    						"code": code.innerText,
-    						"timestamp": date,
-    						"userid": userid,
-							"name": "Test",
-    					}
-    				});
-    				break;
-    			}
-    	    }
-    	    if (code == undefined) {
-    			console.error("could not find student's code on page");
-    	    }
-    	}, false);
+    	run_button.addEventListener("click", handleRunButtonClick, false);
     }
 }, false);
