@@ -33,8 +33,8 @@ function handleRunButtonClick(e) {
     		if (code != undefined) {
     			var date = new Date();
     			$.ajax({
-    				url: "http://127.0.0.1:8080/api",
-    				// url: "https://learning2learn-gcp-backend.appspot.com:8080/api",
+    				// url: "http://127.0.0.1:8080/api",
+    				url: "https://learning2learn-gcp-backend.appspot.com/api",
     				method: "POST",
     				dataType: "json",
     				data: {

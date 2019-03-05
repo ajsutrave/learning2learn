@@ -2,8 +2,7 @@ GOOGLE_APPLICATION_CREDENTIALS := $(shell find . -name 'learning2learn-gcp-backe
 
 init:
 	python3 -m venv .gcp-backend-venv
-	pip install --upgrade pip
-	pip install --user -r requirements.txt
+	pip install -r requirements.txt
 clean:
 	rm -rf .gcp-backend-venv data
 deploy:
@@ -14,6 +13,7 @@ test:
 	@sleep 2
 	gcloud beta emulators datastore env-init --data-dir data
 	export GOOGLE_APPLICATION_CREDENTIALS=$(GOOGLE_APPLICATION_CREDENTIALS)
-	python3 main.py --debug
+#	python3 main.py --debug
+	.gcp-backend-venv/bin/python3 main.py --debug
 	@sleep 2
 	chromium-browser  --disable-extensions --load-extension=../../../chrome-plugin/src/ https://repl.it/student/submissions/4881118

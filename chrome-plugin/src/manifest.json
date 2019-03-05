@@ -13,8 +13,8 @@
     		"https://repl.it/*",
     		"http://127.0.0.1:8080/*",
     		"https://127.0.0.1:8080/*",
-			"https://learning2learn-gcp-backend.appspot.com:8080/*",
-			"http://learning2learn-gcp-backend.appspot.com:8080/*"
+			"https://learning2learn-gcp-backend.appspot.com/*",
+			"http://learning2learn-gcp-backend.appspot.com/*"
     	],
 
     	"js": [
