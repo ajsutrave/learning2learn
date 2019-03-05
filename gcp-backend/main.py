@@ -1,11 +1,7 @@
 from flask import Flask, url_for
 from flask import request, jsonify
 from google.cloud import datastore
-try:
-  import googleclouddebugger
-  googleclouddebugger.enable()
-except ImportError:
-  pass
+
 import argparse
 app = Flask(__name__)
 
