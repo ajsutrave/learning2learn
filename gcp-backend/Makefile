@@ -14,6 +14,6 @@ test:
 	@sleep 2
 	gcloud beta emulators datastore env-init --data-dir data
 	export GOOGLE_APPLICATION_CREDENTIALS=$(GOOGLE_APPLICATION_CREDENTIALS)
-	python3 main.py
+	python3 main.py --debug
 	@sleep 2
 	chromium-browser  --disable-extensions --load-extension=../../../chrome-plugin/src/ https://repl.it/student/submissions/4881118
