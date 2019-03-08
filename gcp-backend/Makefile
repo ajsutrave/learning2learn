@@ -7,7 +7,7 @@ endif
 
 init:
 	$(PYTHON3) -m venv .gcp-backend-venv
-	pip install --user -r src/requirements.txt
+	$(PYTHON3) -m pip install --user -r src/requirements.txt
 clean:
 	-rm -rf .gcp-backend-venv data
 deploy:
