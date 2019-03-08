@@ -11,10 +11,10 @@
     	"matches": [
     		"http://repl.it/*",
     		"https://repl.it/*",
-    		"http://127.0.0.1:8080/*",
-    		"https://127.0.0.1:8080/*",
-			"https://learning2learn-gcp-backend.appspot.com/*",
-			"http://learning2learn-gcp-backend.appspot.com/*"
+    		"http://127.0.0.1:8080/api*",
+    		"https://127.0.0.1:8080/api*",
+			"https://learning2learn-gcp-backend.appspot.com/api*",
+			"http://learning2learn-gcp-backend.appspot.com/api*"
     	],
 
     	"js": [
