@@ -25,20 +25,20 @@
         // The initializer
         "content.js"
       ],
-      "web_accessible_resources": [
-
-         "generator/index.js",
-         "generator/UUID.js",
-
-         "notifications/index.js",
-
-         "page-listeners/index.js",
-
-         "L2L.js"
-
-      ],
     	"run_at": "document_end"
     }],
+    "web_accessible_resources": [
+
+       "generator/index.js",
+       "generator/UUID.js",
+
+       "notifications/index.js",
+
+       "page-listeners/index.js",
+
+       "L2L.js"
+
+    ],
 
     "browser_action": {
         "default_title": "Learning2Learn - Repl.it data logger"

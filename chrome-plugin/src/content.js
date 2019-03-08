@@ -3,24 +3,17 @@
 /*
  Testing some stuff here
  */
- 'use strict';
-
- const script = document.createElement('script');
- script.onload = function() {
-   console.log('loaded');
-   alert('load');
- }
- script.setAttribute("type", "text/javascript");
- script.setAttribute("src", chrome.extension.getURL('L2L.js'));
-console.log(script);
- const head = document.head || document.getElementsByTagName("head")[0] || document.documentElement;
-console.log('HEAD: '+head)
- head.insertBefore(script, head.lastChild);
-
+var s = document.createElement('script');
+s.type = 'module';
+s.src = chrome.runtime.getURL('L2L.js');
+s.onload = function() {
+  console.log('loaded');
+  this.remove();
+};
+(document.head || document.documentElement).appendChild(s);
 console.log('~~~');
-//console.log(L2L);
+console.log(window.L2L);
 console.log('~~~');
-
 
 
 function uuid(x) {
