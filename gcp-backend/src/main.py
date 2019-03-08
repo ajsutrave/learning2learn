@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from flask import Flask, url_for
 from flask import request, jsonify
 from google.cloud import datastore
