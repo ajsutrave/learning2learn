@@ -1,8 +1,8 @@
 GOOGLE_APPLICATION_CREDENTIALS := $(shell find src/ -name 'learning2learn-gcp-backend-*.json')
 ifeq ($(OS),Windows_NT)
-	PYTHON3 := "py -3"
+	PYTHON3 := py -3
 else
-	PYTHON3 := "python3"
+	PYTHON3 := python3
 endif
 
 init:
