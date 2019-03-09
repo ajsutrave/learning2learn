@@ -1,12 +1,22 @@
 
-
+import * as jQuery from './includes/jquery-3.3.1.min.js';
 import L2L from './L2L.js'
 
-console.log('~~~');
-console.log(L2L);
-console.log('~~~');
 
 
+var successNotification = new L2L.Notifications.Success({
+  attachTo: 'global',
+  content: 'Successfully loaded Learning2Learn!',
+  options: {}
+});
+setTimeout(function() {
+  successNotification.destroy();
+  var infoNotification = new L2L.Notifications.Info({
+    attachTo: 'global',
+    content: 'L2L module is now running...',
+    options: {}
+  });
+}, 5000);
 
 /*
   THE FOLLOWING CODE WILL BE INTEGRATED INTO THE L2L MODULE SHORTLY!
@@ -26,6 +36,7 @@ function uuid(x) {
 }
 
 var userid;
+/*
 chrome.storage.sync.get('userid', function(items) {
     userid = items.userid;
     if (!userid) {
@@ -33,7 +44,7 @@ chrome.storage.sync.get('userid', function(items) {
         chrome.storage.sync.set({userid: userid});
     }
 });
-
+*/
 var run_button_found = false;
 var run_button;
 function handleRunButtonClick(e) {
@@ -72,6 +83,7 @@ function handleRunButtonClick(e) {
 	}
 }
 
+/*
 document.addEventListener("DOMNodeInserted", function(e) {
     run_button = $("span:contains('run')").parent().get(0);
     if(run_button != null && !run_button_found) {
@@ -79,3 +91,4 @@ document.addEventListener("DOMNodeInserted", function(e) {
     	run_button.addEventListener("click", handleRunButtonClick, false);
     }
 }, false);
+*/

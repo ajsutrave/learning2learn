@@ -514,14 +514,14 @@
 			datas[blankFieldName] = data;
 		}
 		for (name in datas) {
-console.log('DATAS NAME: '+datas[name]);
+//console.log('DATAS NAME: '+datas[name]);
 			d = datas[name];
 			type = this.userFields[name];
 			if (!type) {
 				continue;
 			}
 			if (type === "text") {
-console.log('IT WAS TEXT');
+//console.log('IT WAS TEXT');
 /*
 				d = encode(d);
 				if (this.options.breakNewLines) {
@@ -530,7 +530,7 @@ console.log('IT WAS TEXT');
 */
 			}
 			value = name === blankFieldName ? '' : '=' + name;
-console.log(d);
+//console.log(d);
             // jQuery.parseHTML() was added to this line by Kris, so that html can be included directly into the message of the notification
 			find(this.userContainer, "[data-notify-" + type + value + "]").html('').append(jQuery.parseHTML(d));
 		}

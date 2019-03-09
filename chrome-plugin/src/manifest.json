@@ -22,29 +22,21 @@
         "includes/jquery-3.3.1.min.js",
         "includes/notify.js",
 
-        // Included internal libraries
-        //"L2L.js",
-
         // The initializer
         "init.js"
       ],
     	"run_at": "document_end"
     }],
     "web_accessible_resources": [
+      "includes/jquery-3.3.1.min.js",
+      "includes/notify.js",
 
-      "includes/require.js",
+      "main.js",
 
       "generator/*.js",
-      "generator/UUID.js",
-
       "notifications/*.js",
-
       "page-listeners/*.js",
-
-      "test.js",
-      "L2L.js",
-
-      "main.js"
+      "L2L.js"
     ],
 
     "browser_action": {

@@ -9,7 +9,7 @@ function loadScript(path, type) {
     var s = document.createElement('script');
     if (type != undefined)
       s.type = type;
-console.log(chrome.runtime.getURL(path));
+console.log(chrome.runtime.getURL(path)); // removing console log seems to break script load for some reason...
     s.src = chrome.runtime.getURL(path);
 
     s.onload = function() {
@@ -22,7 +22,7 @@ console.log(chrome.runtime.getURL(path));
     s.onerror = function(error) {
       reject(Error('Failed to load: '+path+' - '+error));
     }
-console.log(s);
+console.log(s); // removing console log seems to break script load for some reason...
     (document.head || document.documentElement).appendChild(s);
   });
 }
