@@ -1,19 +1,43 @@
 
 
 /*
- Testing some stuff here
+ * init.js simply injects main.js into the current page
+ * so we have access to the browser's ES6 module niceties
  */
-var s = document.createElement('script');
-s.type = 'module';
-s.src = chrome.runtime.getURL('L2L.js');
-s.onload = function() {
-  console.log('loaded');
-  this.remove();
-};
-(document.head || document.documentElement).appendChild(s);
-console.log('~~~');
-console.log(window.L2L);
-console.log('~~~');
+function loadScript(path, type) {
+  return new Promise(function(resolve, reject) {
+    var s = document.createElement('script');
+    if (type != undefined)
+      s.type = type;
+console.log(chrome.runtime.getURL(path));
+    s.src = chrome.runtime.getURL(path);
+
+    s.onload = function() {
+      console.log('loaded');
+      this.remove();
+
+      resolve(this);
+    };
+
+    s.onerror = function(error) {
+      reject(Error('Failed to load: '+path+' - '+error));
+    }
+console.log(s);
+    (document.head || document.documentElement).appendChild(s);
+  });
+}
+
+window.addEventListener('load', function() {
+ loadScript('main.js', 'module');
+});
+
+
+
+
+/*
+  THE FOLLOWING CODE WILL BE INTEGRATED INTO THE L2L MODULE SHORTLY!
+ */
+
 
 
 function uuid(x) {

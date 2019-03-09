@@ -26,21 +26,25 @@
         //"L2L.js",
 
         // The initializer
-        "content.js"
+        "init.js"
       ],
     	"run_at": "document_end"
     }],
     "web_accessible_resources": [
 
-       "generator/index.js",
-       "generator/UUID.js",
+      "includes/require.js",
 
-       "notifications/index.js",
+      "generator/*.js",
+      "generator/UUID.js",
 
-       "page-listeners/index.js",
+      "notifications/*.js",
 
-       "L2L.js"
+      "page-listeners/*.js",
 
+      "test.js",
+      "L2L.js",
+
+      "main.js"
     ],
 
     "browser_action": {
