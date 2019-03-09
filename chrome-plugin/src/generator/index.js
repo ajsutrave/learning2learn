@@ -6,7 +6,7 @@
 
 var Generator = {
 
-  UUID: require('UUID.js')
+  UUID: import('./UUID.js')
 
 };
 

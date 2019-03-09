@@ -5,7 +5,7 @@
  */
 
 var PageListeners = {
-  Events: require('./page-listeners/Events.js')
+  //Events: import('./page-listeners/Events.js')
 };
 
 export default PageListeners;

@@ -5,10 +5,10 @@
  */
 
 var Notifications = {
-  Success: require('./notifications/Success.js'),
-  Info: require('./notifications/Info.js'),
-  Warning: require('./notifications/Warning.js'),
-  Error: require('./notifications/Error.js'),
+  //Success: import('./notifications/Success.js'),
+  //Info: import('./notifications/Info.js'),
+  //Warning: import('./notifications/Warning.js'),
+  //Error: import('./notifications/Error.js'),
 };
 
 export default Notifications;
