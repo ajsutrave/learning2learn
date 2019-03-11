@@ -1,5 +1,27 @@
 
-# Learning2Learn: An Intelligent Tutoring System
+# Learning2Learn
+TODO: Pretty image goes here
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+___
+
+## Introduction
+### Educating Using Neural Networks and Gamification
 
 This concept is known in academic literature as an intelligent tutoring system, or ITS. Here we limit our scope to only an ITS system with a focus on programming. One of the first attempts was LISPITS developed in 1989, a program that successfully aided students in learning LISP. A few other approaches were tried at this time but none seem to have gained widespread adoption.
 Since then, there have been many different iterations of this same idea: AutoTutor from the University of Memphis and ESC101-ITS from IIT Kanpur as well as generalized frameworks for ITS such as the Army Research Lab’s open source GIFT.
@@ -13,8 +35,30 @@ The output of the network would be used to suggest an action to be taken by the 
 
 As more people use this system to write code via a web-based interface, we would have more data on which to train the network. As further analysis and review improves the performance of our model, we can simply update the weights on the back-end.
 
-----------------
 
-License: TODO
+## Getting Started
+TODO
 
-----------------
+
+## Project Components
+TODO
+
+
+## How To Contribute
+TODO
+
+
+## Contribution Guidelines
+TODO
+
+
+## Issues
+TODO
+
+
+## Questions?
+TODO - Gitter? Discord? IRC? Forum?
+
+
+## License:
+TODO
