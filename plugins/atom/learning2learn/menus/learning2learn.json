@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle learning2learn",
+        "command": "learning2learn:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "learning2learn",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "learning2learn:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
